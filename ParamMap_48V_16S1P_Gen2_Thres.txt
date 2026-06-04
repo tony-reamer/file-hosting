@@ -1,0 +1,419 @@
+;************************************
+;C&D Tech Hammerhead BMS Parameter Map
+;GUI Version (Min): Build 9.0.0
+;Date: 8 DEC 2021
+;FW Target: 1.0.0.0 intial
+;************************************
+
+;************************************
+;Parameter Info
+;************************************
+; There are six fields used to construct a Parameter entry.
+; Field 1: Parameter Name (Text)
+; Field 2: E2prom Start Addr (decimal)
+; Field 3: Data Type
+; 	C=8 Bit Signed char
+; 	B=8 Bit Unsigned char
+;	I=16 Bit Signed int
+;	W=16 Bit Unsigned int
+;	L=32 Bit Signed int
+;	U=32 Bit Unsigned int
+;	F=32 Bit Float
+;	S=4 Byte String
+;	~=8 Byte String
+;	$=32 Byte String
+;	H=8 Bit Hex
+;	X=16 Bit Hex
+; Field 4: Default Value (as decimal, float or string. NEVER HEX)
+; Field 5: Min Value (as decimal, float. NEVER HEX, ignored for string)
+; Field 6: Max Value (as decimal, float. NEVER HEX, ignored for string)
+;************************************
+
+; ******************************************************************
+; Monitor Params
+; ******************************************************************
+CC_Gain,&h1700,F,3.74,0.01,1000.0
+CapacityGain,&h1704,F,3.74,2982.62,4193044600.0
+CC_OffsetSamples,&h1708,W,64,0,65535
+CC_Offset,&h170a,I,0,-32768,32767
+CC_Deadband,&h170c,B,9,0,255
+
+[ProtectCfg] ProtectionConfig,&h170d,X,&h12,&h0,&h7FFF
+[ProtectCfg] EnabledProtectA,&h170f,H,&hFC,&h0,&hFC
+[ProtectCfg] EnabledProtectB,&h1710,H,&h33,&h0,&hFF
+[ProtectCfg] EnabledProtectC,&h1711,H,&h80,&h0,&hFF
+; resv 1 byte
+[ProtectCfg] CFETEnabledProtectA,&h1713,H,&98,&h0,&hFF
+[ProtectCfg] CFETEnabledProtectB,&h1714,H,&h11,&h0,&hFF
+[ProtectCfg] CFETEnabledProtectC,&h1715,H,&h0,&h0,&hFF
+; resv 1 byte
+[ProtectCfg] DFETEnabledProtectA,&h1717,H,&hE4,&h0,&hFF
+[ProtectCfg] DFETEnabledProtectB,&h1718,H,&h22,&h0,&hFF
+[ProtectCfg] DFETEnabledProtectC,&h1719,H,&h80,&h0,&hFF
+[ProtectCfg] BodyDiodeThreshold,&h17da,I,3000,0,32767
+
+[EnabledPermFail] EnabledPFailA,&h171a,H,&h8F,&h0,&hFF
+[EnabledPermFail] EnabledPFailB,&h171b,H,&h1F,&h0,&hFF
+[EnabledPermFail] EnabledPFailC,&h171c,H,&h7E,&h0,&hFF
+[EnabledPermFail] EnabledPFailD,&h171d,H,&h1,&h0,&hFF
+
+[Protect] ExtendedTempChargingTemp,&h0ae0,H,&h0,&h0,&h1
+[Protect] CellUV_Threshold,&h171e,B,50,20,90
+[Protect] CellUV_Delay,&h171f,W,1,1,2047
+[Protect] CellOV_Threshold,&h1721,B,74,20,110
+[Protect] CellOV_Delay,&h1722,W,149,1,2047
+[Protect] CellUV_Recovery,&h1724,B,2,2,20
+[Protect] CellOV_Recovery,&h1725,B,2,2,20
+[Protect] CellOV_LatchLimit,&h1726,B,0,0,255
+[Protect] CellOV_CtrDecDelay,&h1727,B,10,0,255
+[Protect] CellOV_RecoveryTime,&h1728,B,15,0,255
+[Protect] OverCurrChgThreshold,&h1729,B,6,2,62
+[Protect] OverCurrChgDelay,&h172a,B,127,1,127
+[Protect] OverCurrDChg1Threshold,&h172b,B,33,2,100
+[Protect] OverCurrDChg1Delay,&h172c,B,58,1,127
+[Protect] OverCurrDChg2Threshold,&h172d,B,30,2,100
+[Protect] OverCurrDChg2Delay,&h172e,B,119,1,127
+[Protect] ShortCircuit_Threshold,&h172f,B,10,0,15
+[Protect] ShortCircuit_Delay,&h1730,B,31,1,31
+[Protect] OverCurrChgRecovery,&h1731,I,232,-32768,32767
+[Protect] OverCurrDChg3Threshold,&h1733,I,-4000,-32768,0
+[Protect] OverCurrDChg3Delay,&h1735,B,2,0,255
+[Protect] OverCurrDChgRecovery,&h1736,I,-500,-32768,32767
+[Protect] OverCurrDChgLatchLimit,&h1738,B,0,0,255
+[Protect] OverCurrDChgLatchCtrDecDelay,&h1739,B,10,0,255
+[Protect] OverCurrDChgLatchRecoveryTime,&h173a,B,15,0,255
+[Protect] OverCurrDChgLatchRecoveryTheshold,&h173b,I,-500,-32768,32767
+[Protect] ShortCircuitRecoveryTime,&h173d,B,6,0,255
+[Protect] ShortCircuitLatchLimit,&h173e,B,0,0,255
+[Protect] ShortCircuitCtrDecDelay,&h173f,B,10,0,255
+[Protect] ShortCircuitLatchRecoveryTime,&h1740,B,15,0,255
+[Protect] ShortCircuitLatchRecoveryThreshold,&h1741,I,200,-32768,32767
+[Protect] PostHighVoltAlarm,&h124C,F,60.5,60.0,61.0
+
+[TempCfg] OverTempChgThreshold,&h1743,C,45,-40,120
+[TempCfg] OverTempChgDelay,&h1744,B,2,0,255
+[TempCfg] OverTempChgRecovery,&h1745,C,40,-40,120
+[TempCfg] OverTempDChgThreshold,&h1746,C,60,-40,120
+[TempCfg] OverTempDChgDelay,&h1747,B,2,0,255
+[TempCfg] OverTempDChgRecovery,&h1748,C,55,-40,120
+[TempCfg] OverTempFET_Threshold,&h1749,B,80,0,150
+[TempCfg] OverTempFET_Delay,&h174a,B,2,0,255
+[TempCfg] OverTempFET_Recovery,&h174b,B,65,0,150
+[TempCfg] OverTempINT_Threshold,&h174c,C,85,-40,120
+[TempCfg] OverTempINT_Delay,&h174d,B,2,0,255
+[TempCfg] OverTempINT_Recovery,&h174e,C,80,-40,120
+[TempCfg] UnderTempChgThreshold,&h174f,C,0,-40,120
+[TempCfg] UnderTempChgDelay,&h1750,B,2,0,255
+[TempCfg] UnderTempChgRecovery,&h1751,C,5,-40,120
+[TempCfg] UnderTempDChgThreshold,&h1752,C,-20,-40,120
+[TempCfg] UnderTempDChgDelay,&h1753,B,2,0,255
+[TempCfg] UnderTempDChgRecovery,&h1754,C,-10,-40,120
+[TempCfg] UnderTempINT_Threshold,&h1755,C,-20,-40,120
+[TempCfg] UnderTempINT_Delay,&h1756,B,2,0,255
+[TempCfg] UnderTempINT_Recovery,&h1757,C,-15,-40,120
+[TempCfg] RecoveryTime,&h1758,B,3,0,255
+[TempCfg] PackTosDelta,&h1759,I,200,10,8500
+
+[PermFail] CUDEP_Threshold,&h175b,I,1700,0,32767
+[PermFail] CUDEP_Delay,&h175d,B,5,0,255
+[PermFail] SUV_Threshold,&h175e,I,1700,0,32676
+[PermFail] SUV_Delay,&h1760,B,5,0,255
+[PermFail] SOV_Threshold,&h1761,I,4000,0,32767
+[PermFail] SOV_Delay,&h1763,B,5,0,255
+[PermFail] TOS_Threshold,&h1764,I,1000,0,3276
+[PermFail] TOS_Delay,&h1766,B,5,0,255
+[PermFail] SOCC_Threshold,&h1767,I,1000,-32768,32767
+[PermFail] SOCC_Delay,&h1769,B,10,0,255
+[PermFail] SOCD_Threshold,&h176a,I,-2500,-32768,32767
+[PermFail] SOCD_Delay,&h176c,B,5,0,255
+[PermFail] SOT_Threshold,&h176d,C,80,-40,120
+[PermFail] SOT_Delay,&h176e,B,5,0,255
+[PermFail] SOTF_Threshold,&h176f,B,85,0,150
+[PermFail] SOTF_Delay,&h1770,B,5,0,255
+[PermFail] VIMR_CheckVoltageThreshold,&h1771,I,3390,0,5500
+[PermFail] VIMR_MaxRelaxCurrent,&h1773,I,90,10,32767
+[PermFail] VIMR_Threshold,&h1775,I,1500,0,5500
+[PermFail] VIMR_Delay,&h1777,B,255,0,255
+[PermFail] VIMR_Duration,&h1778,W,600,0,65535
+[PermFail] VIMA_CheckVoltageThreshold,&h177a,I,3390,0,5500
+[PermFail] VIMA_MinActiveCurrent,&h177c,I,90,10,32767
+[PermFail] VIMA_Threshold,&h177e,I,1500,0,5500
+[PermFail] VIMA_DeltaDelay,&h1780,B,255,0,255
+[PermFail] CFET_OffThreshold,&h1781,I,100,10,5000
+[PermFail] CFET_OffDelay,&h1783,B,255,0,255
+[PermFail] DFET_OffThreshold,&h1784,I,-100,-5000,-10
+[PermFail] DFET_OffDelay,&h1786,B,255,0,255
+[PermFail] VSSF_Threshold,&h1787,I,100,1,32767
+[PermFail] VSSF_Delay,&h1789,B,255,0,255
+[PermFail] SecondLevelDelay,&h178a,B,5,0,255
+[PermFail] LFOscillator,&h178b,B,5,0,255
+[PermFail] HWMX_Delay,&h178c,B,5,0,255
+
+[SettingsCfg] DchgCurrentThreshold,&h17a1,I,50,0,32767
+[SettingsCfg] ChgCurrentThreshold,&h17a3,I,50,0,32767
+
+[BalancingCfg] Config,&h17a5,H,&h16,&h0,&hFF
+[BalancingCfg] MinCellTemp,&h17a6,C,-20,-127,128
+[BalancingCfg] MaxCellTemp,&h17a7,C,60,-127,128
+[BalancingCfg] MaxIntTemp,&h17a8,C,70,-127,128
+[BalancingCfg] Interval,&h17a9,B,20,1,255
+[BalancingCfg] MaxCells,&h17aa,B,8,0,16
+[BalancingCfg] ChargeMinCellVolts,&h17ab,I,3300,0,5000
+[BalancingCfg] ChargeMinDeltaVolts,&h17ad,B,50,0,255
+[BalancingCfg] ChargeStopCellVolts,&h17ae,B,25,0,255
+[BalancingCfg] RelaxMinCellVolts,&h17af,I,3300,0,5000
+[BalancingCfg] RelaxMinDeltaVolts,&h17b1,B,30,0,255
+[BalancingCfg] RelaxStopCellVolts,&h17b2,B,15,0,255
+
+[Power] ShutdownCellVolts,&h17b3,I,0,0,32767
+[Power] ShutdownStackVolts,&h17b5,I,2400,0,32767
+[Power] LowVoltsShutdownDelay,&h17b7,B,10,0,63
+[Power] ShutdownTemp,&h17b8,B,85,0,150
+[Power] ShutdownTempDelay,&h17b9,B,5,0,254
+
+[PowerSleep] SleepCurrent,&h17ba,I,100,0,32767
+[PowerSleep] VoltageTime,&h17bc,B,5,1,255
+[PowerSleep] WakeCompCurrent,&h17bd,I,500,500,32767
+[PowerSleep] SleepHystTime,&h17bf,B,5,0,255
+[PowerSleep] SleepChargerThreshVolts,&h17c0,I,3200,0,32767
+[PowerSleep] SleepChgrPackToSDelta,&h17c2,I,200,10,8500
+
+[Settings2Cfg] FuseBlowMinVolts,&h17c4,I,800,0,32767
+[Settings2Cfg] FuseBlowTimeout,&h17c6,B,255,0,255
+[Settings2Cfg] PowerCfg,&h17c7,X,&h2994,&h0,&hFFFF
+[Settings2Cfg] Reg12Cfg,&h17c9,H,&hD,&h0,&hFF
+[Settings2Cfg] Reg0Cfg,&h17ca,H,&h1,&h0,3
+[Settings2Cfg] HWdogOpts,&h17cb,H,&h0,&h0,&hFF
+
+[AlertCfg] DefaultAlarmMask,&h17cc,X,&hF880,&h0,&hFFFF
+[AlertCfg] SF_AlertMaskA,&h17ce,H,&hFC,&h0,&hFF
+[AlertCfg] SF_AlertMaskB,&h17cf,H,&h33,&h0,&hFF
+[AlertCfg] SF_AlertMaskC,&h17d0,H,&h80,&h0,&hFF
+
+BQ769x2_SecuritySettings,&h17d1,B,&h0,&h0,&hFFF
+BQ769x2_UnsealKey1,&h17d2,X,&h6114,&h100,&hFFF
+BQ769x2_UnsealKey,&h17d4,X,&h0430,&h100,&hFFF
+BQ769x2_FullAccessKey1,&h17d6,X,&h39FF,&h100,&hFFF
+BQ769x2_FullAccessKey2,&h17d8,X,&h0331,&h100,&hFF
+
+; ******************************************************************
+; Gauge Params
+; ******************************************************************
+[CalibData] CC_Gain,&h1600,F,0.4768,0.1,40.0
+[CalibData] CC_Delta,&h1604,F,567744.56,29800.0,1190000.0
+[CalibData] CC_Offset,&h1608,I,-1200,-32767,32768
+[CalibData] BoardOffset,&h160a,C,0,-127,128
+[CalibData] IntTempOffset,&h160b,C,0,-127,128
+[CalibData] ExtTempOffset,&h160c,C,0,-127,128
+[CalibData] resv,&h160d,B,0,0,255
+[CalibData] VoltageDivider,&h160e,W,36000,0,65535
+
+[Safety] Safety_OT_Chg,&h1618,I,450,0,1200
+[Safety] Safety_OT_ChgTime,&h161a,C,2,0,60
+[Safety] Safety_OT_Recovery,&h161b,I,400,0,1200
+[Safety] Safety_OT_DChg,&h161d,I,600,0,1200
+[Safety] Safety_OT_DChgTime,&h161f,C,2,0,60
+[Safety] Safety_OT_DRecovery,&h1620,I,550,0,1200
+
+[ChrgInhibit] ChgInhLowTemp,&h1622,I,30,-400,1200
+[ChrgInhibit] ChgInhHighTemp,&h1624,I,450,-400,120
+[ChrgInhibit] HystTemp,&h1626,I,50,0,100
+
+[ChrgSuspend] ChgSusLowTemp,&h1628,I,-50,-400,1200
+[ChrgSuspend] ChgSusHighTemp,&h162a,I,450,-400,1200
+
+[ChrgTerm] ChgTermTaperCurr,&h162c,I,63,0,1000
+[ChrgTerm] ChgMinTaperCap,&h162e,I,25,0,1000
+[ChrgTerm] ChgCellTaperVolts,&h1630,I,270,0,1000
+[ChrgTerm] ChgCurTaperWindow,&h1632,B,40,0,60
+[ChrgTerm] ChgTCA_SetPct,&h1633,C,-1,-1,100
+[ChrgTerm] ChgTCA_ClrPct,&h1634,C,-1,-1,100
+[ChrgTerm] ChgFC_SetPct,&h1635,C,-1,-1,100
+[ChrgTerm] ChgFC_ClrPct,&h1636,C,98,-1,100
+[ChrgTerm] ChgDoDatEOC_DeltaTemp,&h1637,I,100,0,1000
+
+[ConfigData] CC_Threshold,&h1639,I,2700,100,32767
+[ConfigData] MaxErrLimit,&h163b,B,100,100,100
+[ConfigData] DesignCapacityAH,&h163c,I,3420,0,32767
+[ConfigData] DesignCapacityWH,&h163e,I,1231,0,32767
+[ConfigData] SOH_LoadCurrent,&h1640,I,-400,-32767,0
+[ConfigData] CellChgVoltT1T2,&h1642,W,3650,0,4600
+[ConfigData] CellChgVoltT2T3,&h1644,W,3650,0,4600
+[ConfigData] CellChgVoltT3T4,&h1646,W,3650,0,4600
+[ConfigData] CellChgCurrentT1T2,&h1648,B,30,0,100
+[ConfigData] CellChgCurrentT2T3,&h1649,B,50,0,100
+[ConfigData] CellChgCurrentT3T4,&h164a,B,100,0,100
+[ConfigData] jeita_T1,&h164b,C,0,-128,127
+[ConfigData] jeita_T2,&h164c,C,10,-128,127
+[ConfigData] jeita_T3,&h164d,C,20,-128,127
+[ConfigData] jeita_T4,&h164e,C,45,-128,127
+[ConfigData] DesignEnergyScale,&h164f,B,10,0,255
+
+[FuelGauge] DischargeThreshold,&h1650,I,15,0,2000
+[FuelGauge] ChargeThreshold,&h1652,I,15,0,2000
+[FuelGauge] QuitCurrent,&h1654,I,12,0,1000
+[FuelGauge] DsgRelaxTime,&h1656,W,60,0,8191
+[FuelGauge] ChgRelaxTime,&h1658,B,60,0,255
+[FuelGauge] CellMaxIR_Correct,&h1659,W,400,0,1000
+
+[GaugeIT_Cfg] IT_LoadSelect,&h165b,B,1,0,255
+[GaugeIT_Cfg] IT_LoadMode,&h165c,B,1,0,255
+[GaugeIT_Cfg] IT_MaxResFactor,&h165d,B,50,0,255
+[GaugeIT_Cfg] IT_MinResFactor,&h165e,B,3,0,255
+[GaugeIT_Cfg] IT_RaFilter,&h165f,W,500,0,1000
+[GaugeIT_Cfg] IT_MinPassedChg,&h1661,B,50,1,100
+[GaugeIT_Cfg] IT_MaxQmaxChange,&h1662,B,100,0,255
+[GaugeIT_Cfg] IT_CellTermVolts,&h1663,I,2530,1000,3700
+[GaugeIT_Cfg] IT_CellTermVdelta,&h1665,I,200,0,4200
+[GaugeIT_Cfg] IT_RelaxTime,&h1667,W,500,0,65534
+[GaugeIT_Cfg] IT_UserRateMa,&h1669,I,0,-32767,32767
+[GaugeIT_Cfg] IT_UserRatePwr,&h166b,I,0,-32767,32767
+[GaugeIT_Cfg] IT_ReserveCapMAh,&h166d,I,0,0,9000
+[GaugeIT_Cfg] IT_ReserveEnergy,&h166f,I,0,0,14000
+[GaugeIT_Cfg] IT_MaxScaleBackGrid,&h1671,B,4,0,15
+[GaugeIT_Cfg] IT_CellMinDeltaV,&h1672,W,0,0,65535
+[GaugeIT_Cfg] IT_RaMaxDelta,&h1674,B,15,0,255
+[GaugeIT_Cfg] IT_DesignResistance,&h1675,I,42,1,32767
+[GaugeIT_Cfg] IT_ReferenceGrid,&h1677,B,4,0,100
+[GaugeIT_Cfg] IT_QmaxDeltaPct,&h1678,B,80,0,32767
+[GaugeIT_Cfg] IT_MaxResScale,&h1679,W,32000,0,32767
+[GaugeIT_Cfg] IT_MinResScale,&h167b,W,1,0,32767
+[GaugeIT_Cfg] IT_FastScaleStartSOC,&h167d,B,10,0,100
+[GaugeIT_Cfg] IT_ChgHysVshift,&h167e,I,40,0,2000
+[GaugeIT_Cfg] IT_SmoothRelaxTime,&h1680,I,1000,1,32767
+
+[ConfigDischarge] SOC1_SetThreshold,&h1682,W,300,0,65535
+[ConfigDischarge] SOC1_ClearThreshold,&h1684,W,350,0,65535
+[ConfigDischarge] SOCF_SetThreshold,&h1686,W,150,0,65535
+[ConfigDischarge] SOCF_ClearThreshold,&h1688,W,200,0,65535
+
+[ConfigDischarge] CellBlSetVoltThresh,&h168a,I,2000,0,5000
+[ConfigDischarge] CellBlSetVoltTime,&h168c,B,2,0,60
+[ConfigDischarge] CellBlClrVoltThresh,&h168d,I,2500,0,5000
+[ConfigDischarge] CellBhSetVoltThresh,&h168f,I,3900,0,5000
+
+[ConfigDischarge] CellBhSetVoltTime,&h1691,B,2,0,60
+[ConfigDischarge] CellBhClrVoltThresh,&h1692,I,3650,0,5000
+[ConfigDischarge] CycleDelta,&h1694,B,5,0,255
+
+[FuelGaugeState] QmaxCell0,&h1695,I,3800,0,32767
+[FuelGaugeState] CycleCount,&h1697,W,0,0,65535
+[FuelGaugeState] UpdateStatus,&h1699,B,0,0,6
+
+[FuelGaugeState] CellVoltsAtChgTerm,&h169a,I,4200,0,5000
+[FuelGaugeState] AvgCurrLastRun,&h169c,I,-299,-32768,32767
+[FuelGaugeState] AvgPwrLastRun,&h169e,I,-1131,-32768,32767
+[FuelGaugeState] CellDeltaVoltage,&h16a0,I,2,-32768,32767
+[FuelGaugeState] TempRise,&h16a2,I,20,0,32767
+[FuelGaugeState] TempTimeConstant,&h16a4,I,1000,0,32767
+
+[PowerCfg] FlashUpdateOK,&h16a6,I,2800,0,4200
+[PowerCfg] SleepCurrent,&h16a8,I,10,0,100
+[PowerCfg] FullSleepWait,&h16aa,B,1,0,255
+
+CurrentDeadband,&h16b5,B,5,0,255
+
+; ******************************************************************
+; Additional Protection Parameters
+; ******************************************************************
+[DCHG] ContinuousDchgThreshold,&h121c,F,200,1,500
+[DCHG] ContinuousDchgRecovery,&h1220,F,0.5,0.1,1
+[DCHG] ContinuousDchgDelay,&h122c,F,300,1,300
+[DCHG] PulseDchgThreshold,&h1224,F,300,1,500
+[DCHG] PulseDchgRecovery,&h1228,F,0.5,0.1,1
+[DCHG] PulseDchgDelay,&h1230,F,30,1,300
+[DCHG] ContinuousDchg2Threshold,&h1240,F,700,1,500
+[DCHG] ContinuousDchg2Recovery,&h1244,F,0.5,0.1,1
+[DCHG] ContinuousDchg2Delay,&h1248,F,900,1,1800
+Auto-sleep idle current threshold (A),&h1234,F,1.0,0.2,5.0
+Auto-sleep normal SoC timeout (hours),&h1238,W,4,1,720
+Auto-sleep low SoC timeout (hours),&h123a,W,1,1,24
+Auto-sleep low SoC threshold (%),&h123c,B,25,5,30
+LVD FET ON time after wake (sec),&h123d,W,300,0,300
+
+;****************************************************************
+; Bluetooth Interface Configuration Parameters
+;****************************************************************
+[BT] Bluetooth Enable,&h1300,B,1,0,1
+
+
+;****************************************************************
+; Heater Control Configuration Parameters
+;****************************************************************
+[HeaterCtrl] MaxTempDelta,&h1314,F,10.0,0.0,20.0
+[HeaterCtrl] MaxTempDeltaWhileHeating,&h1318,F,5.0,0.0,20.0
+[HeaterCtrl] HeaterStorageTime,&h131c,F,240,0,600.0
+[HeaterCtrl] HeaterCurrDrawnThres,&h1320,F,-6.0,-10.0,0
+[HeaterCtrl] HeaterExpectedTempRise,&h1324,F,0.5,0,5.0
+[HeaterCtrl] HeaterRecoveryThres,&h1328,F,10.0,0,30.0
+[HeaterCtrl] HeaterTriggerThres,&h132c,F,5.0,-30.0,30.0
+[HeaterCtrl] HeaterLowSoc,&h1330,F,25.0,10.0,100.0
+[HeaterCtrl] Heater Enable,&h1334,B,0,0,1
+
+;****************************************************************
+; OEM Vehicle Parameters
+;****************************************************************
+[CAN] CAN Mode Flags,&h0010,B,&h00,&h00,&h7F
+[OEM] TPDOs Enable,&h1310,W,&h02,&h00,&hFE
+[OEM] Limp Mode OV Threshold in mV,&h1338,W,3550,3350,3750
+[OEM] Limp Mode UV Threshold in mV,&h133A,W,2850,2700,3100
+[OEM] Limp Mode OT Threshold in C,&h133C,B,55,45,65
+[OEM] Limp Mode UV Recovery in mV,&h133E,W,2500,1000,4000
+ 
+;****************************************************************
+; OEM Vehicle Test Parameters (Available only in Test Mode)
+;****************************************************************
+[OEM] Test Pack Voltage in 0.01V,&h1340,W,65535,0,65535
+[OEM] Test Post Voltage in 0.01V,&h1342,W,65535,0,65535
+[OEM] Test Temperature in 0.1C,&h1344,I,-1,-32767,32767
+[OEM] Test SOC,&h1346,B,255,0,255
+[OEM] Test Drive Mode,&h1347,B,255,0,255
+[OEM] Test Max Regen Current in A,&h1348,W,65535,0,65535
+[OEM] Test Max Drive Current in A,&h134A,W,65535,0,65535
+[OEM] Test Cell Voltage in 0.01V,&h134C,W,65535,0,65535
+ 
+[OEM] Test Evolution Faults Bitmask,&h1350,U,&hFFFFFFFF,0,&hFFFFFFFF
+[OEM] Test Evolution State Bitmask,&h1354,255,0,255
+[OEM] Test RXV Vehicle Bitmask,&h1358,B,255,0,255
+[OEM] Test RXV Fault 0 Bitmask,&h1359,B,255,0,255
+[OEM] Test RXV Fault 1 Bitmask,&h135A,B,255,0,255
+[OEM] Test RXV Fault 2 Bitmask,&h135B,B,255,0,255
+[OEM] Test RXV Fault 3 Bitmask,&h135C,B,255,0,255
+[OEM] Test RXV Fault 4 Bitmask,&h135D,B,255,0,255
+[OEM] Test RXV Fault 5 Bitmask,&h135E,B,255,0,255
+[OEM] Test Advanced/ICON Fault Level,&h1360,B,255,0,255
+[OEM] Test Advanced/ICON Fault Code,&h1361,B,255,0,255
+
+;****************************************************************
+;Pack: Identity Parameters
+;****************************************************************
+[DATA] Manufacturer,&h1d00,$,"Trojan Battery",0,0
+[DATA] Part Number,&h1d20,$,"TR 48V 16S28P",0,0
+[DATA] Board Serial Number,&h1d40,$,"0",0,0
+[DATA] Production Date,&h1d60,~,"01082021",0,0
+[DATA] Battery Serial Number,&h1d69,$,"0",0,0
+[DATA] Overall Firmware Version (Major),&h1A61,B,,,
+[DATA] Overall Firmware Version (Minor),&h1A60,B,,,
+[DATA] Overall Firmware Version (Patch),&h1A5F,B,,,
+[DATA] Overall Firmware Version (Build),&h1A5E,B,,,
+
+;*******************************************
+; Lifetime Parameters
+;*******************************************
+[LIFETIME] Maximum temperature in 0.1C,&h10A0,I,300,0,1400
+[LIFETIME] Minimum temperature in 0.1C,&h10A2,I,200,-600,1400
+[LIFETIME] Maximum Charge Current in mA,&h10A4,I,0,-32767,32767
+[LIFETIME] Maximum Discharge Current in mA,&h10A6,I,0,-32767,32767
+[LIFETIME] Maximum Pack Voltage in 20mV,&h10A8,W,320,0,65535
+[LIFETIME] Minimum Pack Voltage in 20mV,&h10AA,W,350,0,65535
+[LIFETIME] Flash Count in counts,&h10AC,W,0,0,65535
+[LIFETIME] Temperature Resolution in 0.1C,&h10AE,C,10,0,255
+[LIFETIME] Current Resolution in mA,&h10AF,C,100,0,255
+[LIFETIME] Voltage Resolution in 20mV,&h10B0,C,1,0,255
+[LIFETIME] Update time in seconds,&h10B1,W,60,0,65535
+
+;************************************
+; Internal Error Map
+;************************************
+[SYS] File Name Ptr,&h1A40,U,,,
+[SYS] File Line Number,&h1A44,U,,,

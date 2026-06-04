@@ -1,0 +1,60 @@
+;************************************
+;C&D Tech BMS Parameter Map
+;GUI Version (Min): Build 9.0.0
+;Date: 30 MAR 2026
+;FW Target: 1.0.0.0 initial
+;************************************
+
+;************************************
+;Parameter Info
+;************************************
+; There are six fields used to construct a Parameter entry.
+; Field 1: Parameter Name (Text)
+; Field 2: E2prom Start Addr (decimal)
+; Field 3: Data Type
+;     C=8 Bit Signed char
+;     B=8 Bit Unsigned char
+;     I=16 Bit Signed int
+;     W=16 Bit Unsigned int
+;     L=32 Bit Signed int
+;     U=32 Bit Unsigned int
+;     F=32 Bit Float
+;     S=4 Byte String
+;     ~=8 Byte String
+;     $=32 Byte String
+;     H=8 Bit Hex
+;     X=16 Bit Hex
+; Field 4: Default Value (as decimal, float or string. NEVER HEX)
+; Field 5: Min Value (as decimal, float. NEVER HEX, ignored for string)
+; Field 6: Max Value (as decimal, float. NEVER HEX, ignored for string)
+;************************************
+
+
+; ******************************************************************
+; Additional Protection Parameters
+; ******************************************************************
+Auto-sleep idle current threshold (A),&h1234,F,1.0,0.2,5.0
+Auto-sleep normal SoC timeout (hours),&h1238,W,4,1,720
+Auto-sleep low SoC timeout (hours),&h123a,W,1,1,24
+Auto-sleep low SoC threshold (%),&h123c,B,25,5,30
+LVD FET ON time after wake (sec),&h123d,W,300,0,300
+
+;****************************************************************
+; Bluetooth Interface Configuration Parameters
+;****************************************************************
+[BT] Bluetooth Enable,&h1300,B,1,0,1
+
+;****************************************************************
+; OEM Vehicle Parameters
+;****************************************************************
+[CAN] CAN Mode Flags,&h1312,B,&h00,&h00,&h00
+[OEM] TPDOs Enable,&h1310,W,&h02,&h00,&hFE
+
+;****************************************************************
+;Pack: Identity Parameters
+;****************************************************************
+[DATA] Manufacturer,&h1d00,$,"Trojan Battery",0,0
+[DATA] Part Number,&h1d20,$,"TR 36V 105 M",0,0
+[DATA] Board Serial Number,&h1d40,$,"0",0,0
+[DATA] Production Date,&h1d60,~,"03302026",0,0
+[DATA] Battery Serial Number,&h1d69,$,"0",0,0
