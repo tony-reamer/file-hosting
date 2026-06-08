@@ -1,0 +1,84 @@
+;************************************
+;C&D Technologies Fault Definitions - for non-OnePack Battery Types
+;GUI Version (Minimum): Build 9.2.15
+;Date: 23 January 2026
+;************************************
+
+;**************************************
+;FAULT Definitions
+;**************************************
+5,High Temperature Warning
+6,Low Temperature Warning
+7,Parameter Write Failure
+8,Permanent Fail Lockout Alarm
+9,Charge Over Current Warning
+10,High Discharge Current Alarm
+11,Charge Over Current Warning
+12,Discharge Over Current Warning
+13,Peak Charge Current Alarm
+14,Peak Discharge Current Alarm
+15,Cell Temperature Sensor Fault
+16,Cell High Voltage Alarm
+17,Cell High Voltage Warning
+18,Cell Low Voltage Alarm
+19,Cell Low Voltage Warning
+20,Cell Low Voltage Lockout
+24,Real Time Clock Fault
+25,Parameter Read Failure
+26,Pack End of Charge Detected Event
+27,Low SOC Warning
+29,Public CAN Error
+30,Unexpected Reset
+31,Cell High Voltage Lockout
+32,Cell High Temperature Charge Limit Alarm
+33,Cell High Temperature Discharge Limit Alarm
+34,FET PCB High Temperature Alarm
+35,Low Temperature Charge Limit Alarm
+36,Low Temperature Discharge Limit Alarm
+38,Temperature Plausibility Error
+39,Pack Voltage Plausibility Alarm
+42,Parameter Check Sum Error
+47,FETPCB Charge Feedback Alarm
+48,FETPCB Discharge Feedback Alarm
+50,High JEITA Charge Current Alarm
+51,Continuous Discharge Current Limit Alarm
+52,Pulse Discharge Current Limit Alarm
+53,Continuous Discharge Current Limit Alarm 2
+54,Post High Voltage Alarm
+55,Post High Voltage Warning
+56,Cell Low Voltage Latch
+57,Post Voltage Plausibility Alarm
+58,Cell Over Voltage 
+59,Cell Over Voltage AFE
+60,Short Circuit Detected
+61,Over Charge Current Lockout
+62,Over Discharge Current Lockout
+63,FET PCB High Temperature Warning
+64,Over Discharge current detected by AFE
+65,XREADY Internal Error AFE
+66,ALERT Internal Error AFE
+67,Cell Under Voltage AFE
+68,Comm Fail Warn AFE
+69,Comm Fail Alarm AFE
+70,Self-Test Voltage Alarm
+71,Pulse Discharge Current Limit 2 Alarm
+
+;**************************************
+;EVENT Definitions
+;**************************************
+100,Parameter Changed
+101,Factory Defaults Applied
+102,Firmware Update
+103,Pack End of Charge Detected Event
+104,E2prom Formatted
+106,External Command Received
+107,Reset Detected
+110,Operation Mode Changed
+115,Charge Mode Changed
+121,Debug Assert Driven Reset
+170,Event Start
+171,Event End
+172,Event Logged
+85,Event End
+165,Event Logged
+200,Gauge Image Programmed
