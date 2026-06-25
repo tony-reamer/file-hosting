@@ -1,7 +1,7 @@
 ;************************************
 ;C&D Technologies Fault Definitions - for non-OnePack Battery Types
-;GUI Version (Minimum): Build 9.2.15
-;Date: 23 January 2026
+;GUI Version (Minimum): Build 9.2.19
+;Date: 25 June 2026
 ;************************************
 
 ;**************************************
