@@ -23,6 +23,7 @@
 18,Cell Low Voltage Alarm
 19,Cell Low Voltage Warning
 20,Cell Low Voltage Lockout
+21,Cell High Temp Alarm
 24,Real Time Clock Fault
 25,Parameter Read Failure
 26,Pack End of Charge Detected Event
@@ -62,6 +63,8 @@
 69,Comm Fail Alarm AFE
 70,Self-Test Voltage Alarm
 71,Pulse Discharge Current Limit 2 Alarm
+72,Cell Low Temp Alarm
+73,Pre Discharge Fail
 
 ;**************************************
 ;EVENT Definitions
