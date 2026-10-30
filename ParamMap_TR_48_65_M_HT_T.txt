@@ -48,8 +48,8 @@ Auto-sleep low SoC threshold (%),&h123c,B,25,5,30
 ;****************************************************************
 [HeaterCtrl] MaxTempDelta,&h1314,F,10.0,0.0,20.0
 [HeaterCtrl] HeaterSocBudget,&h131c,F,15.0,0.0,50.0
-[HeaterCtrl] HeaterRecoveryThres,&h1328,F,10.0,0,30.0
-[HeaterCtrl] HeaterTriggerThres,&h132c,F,5.0,-30.0,30.0
+[HeaterCtrl] HeaterRecoveryThres,&h1328,F,5.0,0,30.0
+[HeaterCtrl] HeaterTriggerThres,&h132c,F,1.0,-30.0,30.0
 [HeaterCtrl] HeaterLowSoc,&h1330,F,25.0,10.0,100.0
 [HeaterCtrl] Heater Enable,&h1334,B,0,0,1
 
